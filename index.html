@@ -27,13 +27,13 @@
 
         <ul class="uppermenu">
           <li class="uppermenu-item">
-            <a class="link" href="index.html">Studio</a>
+            <a class="link active-link" href="index.html">Studio</a>
           </li>
           <li class="uppermenu-item">
-            <a class="link" href="portfolio.html">Portfolio</a>
+            <a class="link active-link" href="portfolio.html">Portfolio</a>
           </li>
           <li class="uppermenu-item">
-            <a class="link" href="">Contacts</a>
+            <a class="link active-link" href="">Contacts</a>
           </li>
         </ul>
       </nav>
@@ -59,7 +59,9 @@
       <section class="background-top">
         <div class="container">
           <h1 class="headlines-one">Effective Solutions for Your Business</h1>
-          <button class="buttons" type="button">Order Service</button>
+          <button class="buttons" data-modal-open type="button">
+            Order Service
+          </button>
         </div>
       </section>
 
@@ -581,5 +583,14 @@
         </div>
       </div>
     </footer>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button class="button-close" type="button" data-modal-close></button>
+        <svg class="close-icon" width="8" height="8">
+          <use href="./images/svg/icons.svg#close-button"></use>
+        </svg>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
