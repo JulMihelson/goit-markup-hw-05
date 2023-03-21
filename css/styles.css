@@ -593,9 +593,10 @@ a {
   height: 100vh;
   top: 0;
   left: 0;
-  background-color: var(--accent-cornflower);
-  opacity: 0.8;
-  transition: opasity 250ms linear, visability 250ms linear;
+  background-color: rgba(46, 47, 66, 0.4);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop.is-hidden {
   opacity: 0;
@@ -603,20 +604,22 @@ a {
   pointer-events: none;
 }
 .backdrop.is-hidden > .modal {
-  transform: translate(-50%, -50%) scale(0.6);
+  transform: scale(0.6);
 }
 .modal {
   position: absolute;
   width: 408px;
   height: 576px;
-  left: 516px;
-  top: 88px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: #fcfcfc;
-
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-close {
   position: absolute;
@@ -625,13 +628,23 @@ a {
   border: 1px solid rgba(0, 0, 0, 0.1);
   width: 24px;
   height: 24px;
-  left: 876px;
-  top: 112px;
+  top: 24px;
+  right: 24px;
+}
+.button-close:focus,
+.button-close:hover {
+  background-color: var(--pressed-state-ocean);
 }
 .close-icon {
-  position: absolute;
-  left: 876px;
-  top: 112px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   fill: var(--dark-navy-blue);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.close-icon:focus,
+.close-icon:hover {
+  fill: var(--white-text);
 }
 /* -------------------------------------------------- */
